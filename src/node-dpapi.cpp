@@ -132,4 +132,6 @@ NAN_MODULE_INIT(init)
 		Nan::GetFunction(Nan::New<v8::FunctionTemplate>(unprotectData)).ToLocalChecked());
 }
 
-NODE_MODULE(binding, init)
+//NODE_MODULE(binding, init)
+//The below line makes the module context aware and works with worker_threads
+NAN_MODULE_WORKER_ENABLED(binding, init)
